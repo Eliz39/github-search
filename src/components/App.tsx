@@ -1,5 +1,6 @@
 import { Input } from './Input'
 import { Button } from './Button'
+import { GitHubUsers } from './GitHubUsers'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Input/>
           <Button/>
           </div>
+          <GitHubUsers/>
         </div>
       </div>
     </div>
