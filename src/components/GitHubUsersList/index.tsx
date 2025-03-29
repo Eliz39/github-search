@@ -9,19 +9,19 @@ export const GitHubUsersList = () => {
   if (error) return <p>Error fetching users</p>
 
   return (
-    <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
       {data?.items?.map((user: any) => (
         <li
           key={user.id}
-          className="flex items-center space-x-4 p-4 hover:cursor-pointer bg-white shadow-md hover:shadow-lg rounded-lg"
+          className="flex items-center space-x-4 rounded-lg bg-white p-4 shadow-md hover:cursor-pointer hover:shadow-lg"
           onClick={() => navigate(`/user/${user.login}`)}
         >
           <img
             src={user.avatar_url}
             alt={user.login}
-            className="w-12 h-12 rounded-full border"
+            className="size-12 rounded-full border"
           />
-          <span className="text-black/75 hover:text-black/90 font-medium">
+          <span className="font-medium text-black/75 hover:text-black/90">
             {user.login}
           </span>
         </li>
