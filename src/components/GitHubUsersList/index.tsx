@@ -1,7 +1,9 @@
 import { useFetchGithubUsers } from '../../hooks/useFetchGithubUsers'
+import { useNavigate } from 'react-router-dom'
 
-export const GitHubUsers = () => {
+export const GitHubUsersList = () => {
   const { data, isLoading, error } = useFetchGithubUsers()
+  const navigate = useNavigate()
 
   if (isLoading) return <p>Loading...</p>
   if (error) return <p>Error fetching users</p>
@@ -12,6 +14,7 @@ export const GitHubUsers = () => {
         <li
           key={user.id}
           className="flex items-center space-x-4 p-4 hover:cursor-pointer bg-white shadow-md hover:shadow-lg rounded-lg"
+          onClick={() => navigate(`/user/${user.id}`)}
         >
           <img
             src={user.avatar_url}
