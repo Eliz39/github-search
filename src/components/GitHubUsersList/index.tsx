@@ -10,7 +10,7 @@ export const GitHubUsersList = () => {
 
   return (
     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-      {data?.items?.map((user: any) => (
+      {data?.items?.map((user) => (
         <li
           key={user.id}
           className="flex items-center space-x-4 rounded-lg bg-white p-4 shadow-md hover:cursor-pointer hover:shadow-lg"

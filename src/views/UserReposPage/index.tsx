@@ -22,7 +22,7 @@ export const UserReposPage = () => {
           <p className="text-center text-gray-500">No repositories found.</p>
         )}
 
-        {data?.map((repo: any) => (
+        {data?.map((repo) => (
           <div
             key={repo.id}
             className="rounded-lg border p-4 shadow-sm transition hover:shadow-md"
