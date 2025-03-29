@@ -14,7 +14,7 @@ export const GitHubUsersList = () => {
         <li
           key={user.id}
           className="flex items-center space-x-4 p-4 hover:cursor-pointer bg-white shadow-md hover:shadow-lg rounded-lg"
-          onClick={() => navigate(`/user/${user.id}`)}
+          onClick={() => navigate(`/user/${user.login}`)}
         >
           <img
             src={user.avatar_url}

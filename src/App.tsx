@@ -9,7 +9,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<UserSearchPage />} />
-            <Route path="/user/:id" element={<UserReposPage />} />
+            <Route path="/user/:login" element={<UserReposPage />} />
           </Routes>
         </BrowserRouter>
       </div>
