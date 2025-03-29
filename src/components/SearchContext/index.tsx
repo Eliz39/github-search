@@ -8,7 +8,9 @@ type SearchContextType = {
 const SearchContext = createContext<SearchContextType | undefined>(undefined)
 
 export const SearchProvider = ({ children }: { children: ReactNode }) => {
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState(
+    sessionStorage.getItem('username') ?? ''
+  )
 
   return (
     <SearchContext.Provider value={{ username, setUsername }}>

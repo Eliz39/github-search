@@ -4,7 +4,7 @@ import { UserReposPage } from './views/UserReposPage'
 
 function App() {
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative bg-white">
       <div className="h-screen sm:pb-40 sm:pt-24 lg:pb-48">
         <BrowserRouter>
           <Routes>
