@@ -19,7 +19,7 @@ export const UserSearchPage = () => {
         <Button />
       </div>
       <GitHubUsersList />
-      {data?.items.length && (
+      {data !== undefined && data.items.length !== 0 && (
         <Pagination pageCount={totalPages} onPageChange={refetch} />
       )}
     </div>

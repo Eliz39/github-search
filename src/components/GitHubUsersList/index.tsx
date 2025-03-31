@@ -1,17 +1,22 @@
 import { useFetchGithubUsers } from '../../hooks/useFetchGithubUsers'
 import { useNavigate } from 'react-router-dom'
+import { useSearch } from '../SearchContext'
 
 export const GitHubUsersList = () => {
   const { data, isLoading, error } = useFetchGithubUsers()
   const navigate = useNavigate()
 
+  const users = data?.items
+
   if (isLoading) return <p>Loading...</p>
   if (error) return <p>Error fetching users</p>
+  if (data?.items !== undefined && users?.length === 0)
+    return <p>No users found</p>
 
   return (
     <>
       <ul className="mb-8 mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {data?.items?.map((user) => (
+        {users?.map((user) => (
           <li
             key={user.id}
             className="flex items-center space-x-4 rounded-lg bg-white p-4 shadow-md hover:cursor-pointer hover:shadow-lg"
