@@ -5,7 +5,7 @@ import { UserReposPage } from './views/UserReposPage'
 function App() {
   return (
     <div className="relative bg-white">
-      <div className="h-screen pt-12 sm:pb-40 sm:pt-24 lg:pb-48">
+      <div className="pb-8 pt-12 sm:pt-24">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<UserSearchPage />} />
