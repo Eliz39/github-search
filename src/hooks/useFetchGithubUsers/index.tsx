@@ -1,9 +1,11 @@
-import { useSearch } from '../../components/SearchContext'
+import { useSearchParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { fetchGitHubUsers } from '../../api/fetchGitHubUsers'
 
 export const useFetchGithubUsers = () => {
-  const { username, page } = useSearch()
+  const [searchParams] = useSearchParams('')
+  const username = searchParams.get('username') || ''
+  const page = Number(searchParams.get('page')) || 1
 
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: ['githubUsers', username, page],

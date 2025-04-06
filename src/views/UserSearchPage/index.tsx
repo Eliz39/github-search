@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Input } from '../../components/Input'
 import { Button } from '../../components/Button'
 import { GitHubUsersList } from '../../components/GitHubUsersList'
@@ -7,6 +8,15 @@ import { useFetchGithubUsers } from '../../hooks/useFetchGithubUsers'
 
 export const UserSearchPage = () => {
   const { data, totalPages, refetch } = useFetchGithubUsers()
+  const [searchParams, setSearchParams] = useSearchParams('')
+
+  const paramsObj = Object.fromEntries(searchParams.entries())
+  const username = searchParams.get('username') || ''
+  const page = Number(searchParams.get('page')) || 1
+
+  useEffect(() => {
+    username !== '' && refetch()
+  }, [page, refetch, username])
 
   return (
     <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
@@ -16,11 +26,19 @@ export const UserSearchPage = () => {
       </h1>
       <div className="flex items-center justify-center">
         <Input />
-        <Button />
+        <Button
+          onClick={() => {
+            setSearchParams({
+              ...paramsObj,
+              page: '1'
+            })
+            refetch()
+          }}
+        />
       </div>
       <GitHubUsersList />
       {data !== undefined && data.items.length !== 0 && (
-        <Pagination pageCount={totalPages} onPageChange={refetch} />
+        <Pagination pageCount={totalPages} />
       )}
     </div>
   )

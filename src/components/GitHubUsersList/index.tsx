@@ -1,6 +1,5 @@
 import { useFetchGithubUsers } from '../../hooks/useFetchGithubUsers'
 import { useNavigate } from 'react-router-dom'
-import { useSearch } from '../SearchContext'
 
 export const GitHubUsersList = () => {
   const { data, isLoading, error } = useFetchGithubUsers()
